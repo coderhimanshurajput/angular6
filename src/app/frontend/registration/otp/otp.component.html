@@ -1,0 +1,32 @@
+<div class="otp-box text-center">
+<div class="col-sm-6 col-sm-offset-3">
+ 
+<form name="userregister">
+ 
+    <mat-card>
+  <div class="register1_container">
+  <h3>Please Enter One-Time Password to verify your account</h3>
+   <p>A One-Time Password has been sent to Email </p>
+<div class="form-group col-sm-6 text-center txt-box">
+     
+    <mat-form-field>
+
+      <input matInput placeholder="Enter OTP" [(ngModel)]="OTP.otp_code" [formControl]="otp" required >
+      <mat-error *ngIf="otp.invalid">{{getErrorMessage()}}</mat-error>
+      
+    </mat-form-field>
+
+  </div>
+
+</div>
+
+
+  <button mat-button (click)="verifyotp()">Submit</button>
+  <div class="resend-box">
+    <a href="">Resend One-Time Password</a>
+	</div>
+</mat-card>
+</form>
+  
+</div>
+</div>

@@ -1,0 +1,72 @@
+<div class="container">
+  <div class="col-sm-12 main-contant">
+
+<form name="addCart" novalidate ng-submit="addCart.$valid "  >
+
+<div>
+  <div class="col-sm-12 single-product">
+      <div class="preview col-sm-6">
+          <div class="preview-pic tab-content">
+              <div class="jzoom tab-pane active" id="pic-1">
+                  <img src="{{produtctdetail.image}}">
+                  
+              </div>
+      
+          </div>
+          <ul class="preview-thumbnail nav nav-tabs">
+              <li class="active"><a data-target="#pic-1" data-toggle="tab"><img src="{{produtctdetail.image}}" /></a></li>
+          </ul>
+       
+
+
+          
+      </div>
+      <div class="details col-sm-6">
+        
+          <h4 class="price" ng-model="cms.price"><span>AED: {{cart.price}}</span></h4>
+          <div class="row view-pro-section2">
+              <div class="col-sm-1"><span class="size">Size:</span></div>
+              <div class="col-sm-4">
+                  <select class="form-control" id="size" name="size" [(ngModel)]="cart.size" [formControl]="size" required="" (ngModelChange)="getPrice(cart.size)">
+                  
+                  <option value="{{size.size}}" *ngFor="let size of Size" >{{size.size}}</option>
+              
+                  </select> 
+                   <div style="color:red;" *ngIf="size.invalid"> {{getSizeErrorMessage()}} </div>
+              </div>
+              <div class="col-sm-1"><span class="qty">Qty:</span></div>
+              <div class="col-sm-4">
+                   <input type='number' [formControl]="quantity"  min="1" max="100" class="form-control" name="quantity" [(ngModel)]="cart.quantity" placeholder="Qty" value="1"  id="qty" required />
+
+                   <!-- <div ng-messages="addCart.qty.$error ">
+                              <div style="color:red" ng-message="required">This is required.</div>
+                          </div> -->
+                             <div style="color:red" *ngIf="quantity.invalid">{{getErrorMessage()}}</div>
+
+                          
+
+
+                  <!-- <span style="color:red" ng-show="addCart.qty.$dirty && addCart.qty.$invalid">
+                   <span  ng-show="addCart.qty.$error.required">Required</span>
+                  </span> -->
+              </div>
+          </div>
+      &nbsp;
+          <div class="action">
+              <!-- <a ng-href="" ng-click="" class="add-to-cart btn btn-default"onclick="required()">Add to Cart</a> -->
+              <button class="add-to-cart btn btn-primary"  (click)="addCart()" >Add to Cart</button>
+              <button class="add-to-cart btn btn-primary" (click)="buynow()" >Buy Now</button>
+          </div>
+          <h3 class="descri-heading">Descrption:</h3>
+          <div class="quick-desrci"><!-- class="quick-desrci" -->
+
+              
+              <p >{{produtctdetail.description}}</p>
+             
+          </div>
+      </div>
+  </div>
+</div>
+</form>
+</div>
+</div>

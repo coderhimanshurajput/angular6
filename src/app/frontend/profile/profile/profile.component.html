@@ -1,0 +1,406 @@
+<div class="container main-block">
+  <div class="col-sm-12 main-contant">
+      <div class="col-sm-12 profile-section">
+          <div class="col-sm-12 profile-header">
+              <div class="col-sm-6 col-xs-9">
+                  <h3 class="proleft-title">Personal Information</h3>
+              </div>
+              <div class="col-sm-6 col-xs-3">
+                  <h3 class="proright-title">
+                      <a href="" data-toggle="modal" data-target="#editProfile"  title="Edit Your Profile"><span class="glyphicon glyphicon-pencil"></span></a>
+                  </h3>
+              </div>
+      <div class="clear-both"></div>
+          </div>
+          <div class="col-sm-12 profile-body">
+      
+        <table class="table hidden-xs">
+          <tbody >
+            <tr>
+              <td><strong>First Name</strong></td>
+              <td>{{userdata.first_name}}</td>
+              <td><strong>Last Name</strong></td>
+              <td>{{userdata.last_name}}</td>
+            </tr>
+            <tr>
+              <td><strong>Mobile Number</strong></td>
+              <td>{{userdata.phone_number}}</td>
+              <td><strong>Email Address</strong></td>
+              <td>{{userdata.email}}</td>
+            </tr>
+            <tr>
+              <td><strong>Pin</strong></td>
+              <td>{{userdata.pin_code}}</td>
+              <td></td>
+              <td></td>
+            </tr>
+            <tr>
+              <td><strong>Address</strong></td>
+              <td colspan="3">
+                {{userdata.address}}
+              </td>
+            </tr>
+          </tbody>
+        </table>
+        
+             
+      
+      
+      <div class="clear-both"></div>
+          </div>
+    <div class="clear-both"></div>
+      </div>
+
+
+           <button ng data-toggle="modal" class="add-more-stu" data-target="#addstudent" title="Edit Student Information" class="btn-box btn btn-primary">Add More Student</button>
+
+      <div class="col-sm-12 profile-section " *ngFor="let student of studentlist let i=index">
+          <div class="col-sm-12 profile-header">
+              <div class="col-sm-6 col-xs-9">
+                  <h3 class="proleft-title">Student Information ({{i+1}})</h3>
+              </div>
+              <div class="col-sm-6 col-xs-3">
+                  <h3 class="proright-title">
+                      <a  (click)="getsinglestudent(student._id)" ng data-toggle="modal" data-target="#studentProfile" title="Edit Student Information"><span class="glyphicon glyphicon-pencil"></span></a>
+                      <a title="Remove Student Information" (click)="removeStudent(student._id)"><span class="glyphicon glyphicon-remove"></span></a>
+                  </h3>
+              </div>
+      <div class="clear-both"></div>
+          </div>
+
+          <div class="col-sm-12 profile-body">
+              <table class="table hidden-xs table-field-box">
+                  <thead>
+                      <tr>
+                          <th class="std1">Student Name</th>
+                          <th class="std1">School Name</th>
+                          <th class="std1">Class</th>
+                          <th class="std1">House</th>
+                          <th class="std1">Gender</th>
+                      </tr>
+                  </thead>
+                  <tbody>
+                      <tr>
+                          <td>{{student.name}}</td>
+                          <td>{{student.school_name}}</td>
+                          <td>{{student.class}}</td>
+                          <td>{{student.house}}</td>
+                          <td >{{student.gender==1?'Male':'Female'}}</td>
+                      </tr>
+                  </tbody>
+              </table>
+       
+          </div>
+      </div>
+
+              <div class="col-sm-12 profile-section mg-top ">
+          <div class="col-sm-12 profile-header">
+              <div class="col-sm-6 col-xs-9">
+                  <h3 class="proleft-title">Update Password</h3>
+              </div>
+              <div class="col-sm-6 col-xs-3">
+                  <h3 class="proright-title">
+                      <a href="" data-toggle="modal" data-target="#editPassword" title="Update Your Password"><span class="glyphicon glyphicon-pencil"></span></a>
+                  </h3>
+              </div>
+      <div class="clear-both"></div>
+          </div>
+          <div class="col-sm-12 profile-body">
+      
+              <table class="table hidden-xs">
+                  <tr>
+                      <td><strong>Email Address</strong></td>
+
+                      <td>{{userdata.email}}</td>
+                      <td><strong>Password</strong></td>
+                      <td>********</td>
+                  </tr>
+              </table>
+      
+        <table  class="table visible-xs">
+                  <tr>
+                      <td><strong>Email Address</strong></td>
+        </tr>
+        <tr>
+                      <td>{{userdata.email}}</td>
+        </tr>
+        <tr>
+                      <td><strong>Password</strong></td>
+        </tr>
+        <tr>
+                      <td>********</td>
+                  </tr>
+              </table>
+      
+      <div class="clear-both"></div>
+          </div>
+      </div>
+  </div>
+</div>
+
+
+
+<div class="modal fade profile-modal model-detail-form" id="editProfile" role="dialog">
+  <div class="modal-dialog">
+      <div class="modal-content form-block">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal">&times;</button>
+            <h4 class="modal-title">Personal Information</h4>
+          </div>
+          <div class="modal-body">
+          <form class="">
+     
+              <div class="form-group" ng-class="{true: 'error'}[submitted && form.FirstName.$invalid]">
+                  <div class="col-sm-6">
+                      <label>First Name</label>
+                      <input type="text" class="form-control"[formControl]="first_name" [(ngModel)]="userdata.first_name" required />
+                      <span class="help-inline" *ngIf="first_name.invalid">{{getfirst_nameErrorMessage()}}</span>
+                  </div>
+                  <div class="col-sm-6">
+                      <label>Last Name</label>
+                      <input type="text" class="form-control" [formControl]="last_name" [(ngModel)]="userdata.last_name" required />
+                      <span class="help-inline" *ngIf="last_name.invalid">{{getlast_nameErrorMessage()}}</span>
+                  </div>
+              </div>
+
+              <div class="form-group" ng-class="{true: 'error'}[submitted && form.mobilenumber.$invalid]">
+                  <div class="col-sm-6">
+                      <label>Mobile Number</label>
+                      <input type="text" class="form-control" [formControl]="phone_number" [(ngModel)]="userdata.phone_number" required />
+                       <span class="help-inline" *ngIf="">{{getmobileErrorMessage()}}</span>
+                  </div>
+                  <div class="col-sm-6">
+                      <label>Email Address</label>
+                      <input type="email" class="form-control"  [formControl]="email" readonly="" [(ngModel)]="userdata.email">
+                  </div>
+              </div>
+              <div class="form-group" ng-class="{true: 'error'}[submitted && form.pincode.$invalid]">
+                  <div class="col-sm-6">
+                      <label>Pin Code</label>
+                      <input type="text" class="form-control" [formControl]="pin_code" [(ngModel)]="userdata.pin_code" required />
+                      <span class="help-inline"*ngIf="pin_code.invalid">{{getpin_codeErrorMessage()}}</span>
+                  </div>
+                  <div class="col-sm-6">
+                      
+                  </div>
+              </div>
+              <div class="form-group" ng-class="{true: 'error'}[submitted && form.address.$invalid]">
+                  <div class="col-sm-12">
+                      <label>Address</label>
+                      <input type="text" class="form-control" [formControl]="address" [(ngModel)]="userdata.address" required />
+                      <span class="help-inline" *ngIf="address.invalid">{{getaddressErrorMessage()}}</span>
+                     <!--  <textarea class="form-control" rows="5"></textarea> -->
+                  </div>
+              </div>
+              <div class="form-group">
+                  <div class="col-sm-12 text-center">
+                      <button class="btn btn-primary" (click)="updateuserdetail()" data-dismiss="modal" class="btn-box btn btn-primary">Update</button>
+                  </div>
+              </div>
+          </form>
+          </div>
+      </div>
+  </div>
+</div>
+
+
+<!-- Add student detail -->
+
+  <div class="modal fade profile-modal model-detail-form" id="addstudent" role="dialog">
+  <div class="modal-dialog">
+      <div class="modal-content form-block">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal">&times;</button>
+            <h4 class="modal-title">Add Student</h4>
+          </div>
+          <div class="modal-body">
+   
+            <form >
+  
+           
+                <div class="form-group" >
+
+                        
+
+                <div class="col-sm-6">
+                   
+
+                        <mat-form-field>
+                                <input matInput placeholder="Student Name" [(ngModel)]="addstudent.name" [formControl]="studentname"  required>
+                      
+                                <mat-error *ngIf="studentname.invalid">{{getstudentnameErrorMessage()}}</mat-error>
+                        </mat-form-field>
+                </div>
+                <div class="col-sm-6">
+                        <mat-form-field>
+                                <mat-select  placeholder="Select School" name="schoolname" [formControl]="schoolname" [(ngModel)]="addstudent.school_id" (ngModelChange)="houselist()" >
+                                  <mat-option value="{{school._id}}" *ngFor="let school of school">{{school.name}}</mat-option>
+                                  </mat-select>
+                             
+                                <mat-error  *ngIf="schoolname.invalid">{{getschoolnameErrorMessage()}}</mat-error>
+                        </mat-form-field>
+                   
+                </div>
+            </div>
+            <div class="form-group" >
+                <div class="col-sm-6">
+                        <mat-form-field>
+                                <mat-select placeholder="Class" [(ngModel)]="addstudent.class" [formControl]="classname" required >
+                                  <mat-option value="{{class.name}}" *ngFor="let class of class">{{class.name}}</mat-option>
+                              
+                                
+                                </mat-select>
+                              
+                                <mat-error  *ngIf="classname.invalid">{{getclassnameErrorMessage()}}</mat-error>
+                        </mat-form-field>
+                  
+                </div>
+                <div class="col-sm-6">
+
+                        <mat-form-field>
+                                <mat-select placeholder="Select House"  [(ngModel)]="addstudent.house" [formControl]="housename" required>
+                                  <mat-option value="{{house}}" *ngFor="let house of house.house">{{house}}</mat-option>
+                                 
+                                </mat-select>
+                               
+                                <mat-error  *ngIf="classname.invalid">{{gethousenameErrorMessage()}}</mat-error>
+                        </mat-form-field>
+                   
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-sm-6">
+                        <mat-form-field>
+                                <mat-select placeholder="Select Gender" [(ngModel)]="addstudent.gender" [formControl]="gender" name="SelectGender" required >
+                                  <mat-option value="1">Male</mat-option>
+                                  <mat-option value="2">Female</mat-option>
+                                </mat-select>
+                              
+                                <mat-error  *ngIf="gender.invalid" >{{getgenderErrorMessage()}}</mat-error>
+                        </mat-form-field>
+                   
+                </div>
+                <div class="col-sm-6"></div>
+            </div>
+            <div class="form-group">
+                <div class="col-sm-12 text-center">
+                    <button class="btn btn-primary" *ngIf="studentname.invalid || schoolname.invalid || classname.invalid || housename.invalid || gender.invalid" (click)="addStudent()">Add Student</button>
+                    <button class="btn btn-primary" *ngIf="studentname.valid && schoolname.valid && classname.valid && housename.valid && gender.valid" (click)="addStudent()" data-dismiss="modal">Add Student</button>
+                </div>
+            </div>
+        </form>
+          </div>
+      </div>
+  </div>
+</div>
+
+
+<!-- end of add student -->
+
+<div class="modal fade profile-modal model-detail-form" id="studentProfile" role="dialog">
+  <div class="modal-dialog">
+      <div class="modal-content form-block">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal">&times;</button>
+            <h4 class="modal-title">Student Information</h4>
+          </div>
+          <div class="modal-body">
+      
+          <form >
+
+              <div class="form-group" >
+                  <div class="col-sm-6">
+                     
+
+                      <label>Student Name</label>
+
+                      <input type="text" class="form-control" [formControl]="name"  [(ngModel)]="studentinfo.name">
+                      <span class="help-inline" *ngIf="getnameErrorMessage()" >Required</span>
+                  </div>
+                  <div class="col-sm-6">
+                      <label>School Name</label>
+                       <select class="form-control" [formControl]="schoolinfo"  [(ngModel)]="studentinfo.school_id" (ngModelChange)="houselist2(studentinfo.school_id)">
+                          <option value="{{school._id}}" *ngFor="let school of school">{{school.name}}</option>
+                     
+                      </select>
+                      <span class="help-inline" *ngIf="schoolinfo.invalid">{{getschoolinfoErrorMessage()}}</span>
+                  </div>
+              </div>
+              <div class="form-group" >
+                  <div class="col-sm-6">
+                      <label>Class</label>
+                       <select class="form-control" [formControl]="classinfo"  [(ngModel)]="studentinfo.class" required>
+                          <option value="{{class.name}}" *ngFor="let class of class">{{class.name}}</option>
+                         
+                      </select>
+                      <span class="help-inline" *ngIf="classinfo.invalid" >{{getclassinfoErrorMessage()}}</span>
+                  </div>
+                  <div class="col-sm-6">
+                      <label>House</label>
+                      <select class="form-control" [formControl]="houseinfo" [(ngModel)]="studentinfo.house"  required>
+                           <option value="{{house}}" *ngFor="let house of house2"> {{house}}</option>
+                  
+                         
+                      </select>
+                       <span class="help-inline" *ngIf="houseinfo.invalid" >{{gethouseinfoErrorMessage()}}</span>
+                  </div>
+              </div>
+              <div class="form-group" >
+                  <div class="col-sm-6">
+                      <label>Gender</label>
+                      <select class="form-control" [formControl]="genderinfo" [(ngModel)]="studentinfo.gender" >
+                         
+                          <option value="1">Male</option>
+                          <option value="2">Female</option>
+                      </select>
+                       <span class="help-inline" *ngIf="genderinfo.invalid" >{{getgenderinfoErrorMessage()}}</span>
+                  </div>
+                  <div class="col-sm-6"></div>
+              </div>
+              <div class="form-group">
+                  <div class="col-sm-12 text-center">
+                      <button class="btn btn-primary" (click)="editstudentdetail(studentdetail._id)" data-dismiss="modal" class="btn-box btn btn-primary">Update</button>
+                  </div>
+              </div>
+          </form>
+          </div>
+      </div>
+  </div>
+</div>
+
+<div class="modal fade profile-modal model-detail-form" id="editPassword" role="dialog">
+  <div class="modal-dialog">
+      <div class="modal-content form-block">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal">&times;</button>
+            <h4 class="modal-title">Update Password</h4>
+          </div>
+          <div class="modal-body">
+          <form> 
+
+
+              <div class="form-group" >
+
+                  <mat-form-field>
+                <input matInput placeholder="Password" [(ngModel)]="User.password" [formControl]="password"  required>
+      
+                <mat-error *ngIf="password.invalid">{{getpasswordErrorMessage()}}</mat-error>
+              </mat-form-field>
+
+                       <mat-form-field>
+                <input matInput placeholder="New Password" [(ngModel)]="User.new_password" [formControl]="newpassword"  required>
+      
+                <mat-error *ngIf="newpassword.invalid">{{getnewpasswordErrorMessage()}}</mat-error>
+              </mat-form-field>
+              
+              </div>
+              <div class="form-group">
+                  <div class="col-sm-12 text-center">
+                      <button class="btn btn-primary" (click)="updatepassword()" class="btn-box btn btn-primary">Update</button>
+                  </div>
+              </div>
+          </form>
+          </div>
+      </div>
+  </div>
+</div>

@@ -1,0 +1,130 @@
+
+<div class="container main-block">
+  
+  <div class="col-sm-12 main-contant">
+      <div class="row bs-wizard" style="border-bottom:0;">
+          <div class="col-xs-4 bs-wizard-step complete">
+            <div class="text-center bs-wizard-stepnum">Perent Details</div>
+            <div class="progress"><div class="progress-bar"></div></div>
+            <a routerLink="" class="bs-wizard-dot"></a>
+          </div>
+          
+          <div class="col-xs-4 bs-wizard-step active"><!-- complete -->
+            <div class="text-center bs-wizard-stepnum">Student Details</div>
+            <div class="progress"><div class="progress-bar"></div></div>
+            <a routerLink="" class="bs-wizard-dot"></a>
+          </div>
+          
+          
+          
+          <div class="col-xs-4 bs-wizard-step disabled"><!-- active -->
+            <div class="text-center bs-wizard-stepnum">Final Details</div>
+            <div class="progress"><div class="progress-bar"></div></div>
+            <a routerLink="" class="bs-wizard-dot"></a>
+          </div>
+      </div>
+    <h2 class="text-center">Please Enter Student Details</h2>
+  
+    <div>
+    <div class="final-reg-block" *ngIf="schooldetail.length > 0" >
+    <div >
+        <div class="table-responsive" >
+        <table class="table  table-striped">
+          <tr>
+          <th>Name</th>
+          <th>School Name</th>
+          <th>Class</th>
+          <th>Gender</th>
+          <th>House</th>
+        
+        </tr>
+        
+        <tr *ngFor="let item of schooldetail"  >
+          <td>{{item.name}}</td>
+          <td>{{item.school_name}}</td>
+          <td>{{item.class}}</td>
+          <td >{{item.gender===1?'Male':'Female'}}</td>
+          <td>{{item.house}}</td>
+        
+        </tr>
+        </table>
+        </div>
+        <a routerLink="/registration_step3">If You Do'nt want add more child click here for continue</a>
+        </div>
+    </div>
+
+  <form name="registration" (ngSubmit)="savestudentdetail()">
+  <mat-card>
+    <div class="register1_container">
+  
+      <div class="form-group" >
+        <div class="col-sm-6">
+  
+        <mat-form-field>
+  
+          <input matInput placeholder="name" [(ngModel)]="register2.name" [formControl]="name" >
+  
+              <mat-error *ngIf="name.invalid">{{getnameErrorMessage()}}</mat-error>
+  
+        </mat-form-field>
+        </div>        
+        <div class="col-sm-6">
+  
+  
+          <mat-form-field>
+            <mat-select  placeholder="Select School" [formControl]="schoolname"  [(ngModel)]="register2.school_id"  (ngModelChange)="housedata($event)" >
+              <mat-option *ngFor="let item of schoollist"  value={{item._id}}>{{item.name}}</mat-option>
+              </mat-select>
+         
+            <mat-error  *ngIf="schoolname.invalid" >{{getschoolnameErrorMessage()}}</mat-error>
+          </mat-form-field>
+      </div>
+    </div>
+  
+  
+      <div class="form-group">
+        <div class="col-sm-6">
+        <mat-form-field>
+          <mat-select [(ngModel)]="register2.house" [formControl]="housename" placeholder="Select House" >
+            <mat-option *ngFor="let item of houselist" value={{item}} >{{item}}</mat-option>
+        
+          
+          </mat-select>
+        
+          <mat-error  *ngIf="housename.invalid" >{{gethousenameErrorMessage()}}</mat-error>
+        </mat-form-field>
+  </div>
+        <div class="col-sm-6">
+          <mat-form-field>
+            <mat-select placeholder="Select Class"  [(ngModel)]="register2.class" [formControl]="classname" >
+              <mat-option value={{item}} *ngFor="let item of classlist"  >{{item}}</mat-option>
+             
+            </mat-select>
+           
+            <mat-error  *ngIf="classname.invalid">{{getclassnameErrorMessage()}}</mat-error>
+          </mat-form-field>
+      </div>
+    </div>
+    <div class="form-group">
+      <div class="col-sm-6">
+      <mat-form-field>
+        <mat-select placeholder="Select Gender" [formControl]="gender" [(ngModel)]="register2.gender" >
+          <mat-option value="1">Male</mat-option>
+          <mat-option value="2">Female</mat-option>
+        </mat-select>
+      
+        <mat-error  *ngIf="gender.invalid" >{{getgenderErrorMessage()}}</mat-error>
+      </mat-form-field>
+      </div>
+    </div>
+  
+    </div>
+    &nbsp;
+	<div class="text-right"><button type="btn" class="btn btn-primary btn-box">Submit</button></div>
+  
+  </mat-card>
+  </form>
+  
+  </div>
+  </div>
+  </div>

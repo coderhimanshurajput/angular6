@@ -1,0 +1,226 @@
+
+
+
+.ng-binding p{
+		line-height:28px;
+		font-size:18px;
+		text-align:justify;
+		margin:10px 10px 0px 10px;
+}
+.img-responsive, 
+.thumbnail > img,
+.thumbnail a > img,
+.carousel-inner > .item > img,
+.carousel-inner > .item > a > img {
+    display: block;
+	width:100%;
+    max-width: 100%;
+    height: auto;
+}
+.login1 img {
+    width: 250px;
+ margin-top: 20px; 
+}
+.clear-both{clear:both;}
+@media screen and (min-width:768px) and (max-width: 1100px){
+	.meta {
+			bottom: 10px;
+			left: 20px;
+			right: 20px;
+			padding: 15px;
+		}
+	.meta h1 {
+			color: #f13c13;
+			font-size: 18px;
+			font-weight: 900;
+			margin-bottom: 10px;
+		}
+	.meta p {
+			width: 100%;
+			font-size: 13px;
+			-webkit-animation-delay: .6s;
+			animation-delay: .6s;
+			line-height: initial;
+	}
+
+}
+@media screen and (max-width: 575px){
+	.navbar-brand > img {
+			width:100px !important;
+			}
+}
+@media screen and (max-width: 767px){
+
+
+.img-text span{
+		line-height:1.5;
+	}
+	
+.ng-binding p{
+		line-height:28px;
+		font-size:18px;
+		text-align:justify;
+		margin:10px 10px 0px 10px;
+}
+.MsoNormal{
+		margin:10px;
+	}
+
+#product-item-part{
+		padding:0px;
+	}
+.quick-desrci {
+		margin-bottom:10px ;
+		border:1px solid #ccc;
+	}
+.order-placed p {
+    font-size: 15px;
+	}
+.banner5 h2 span {
+    font-size: 19px;
+}
+.order-placed h4 span{
+	margin-bottom:5px;
+	}
+.md-block > button.md-raised,
+ .order-placed .btn-primary {
+    border-color: #ae3418 !important;
+    background-color: #ae3418 !important;
+	margin-bottom: 10px;
+   }
+
+.profile-body {overflow:scroll;}
+.abt-info-pic p{
+	   padding:10px;
+	}
+.main-contant {
+	padding: 0px 0px 40px 0px;
+}
+.sector-contant p{
+		line-height:1.5;
+	}
+	
+.sector-title h2 span {
+		font-size:26px;
+	}
+
+.sector-title h2 span {
+		padding:0px;
+	}
+	
+.sector-banner>.container h1 span{
+		font-size:30px;
+	}
+	
+.sector-section{
+		margin-bottom:2px;
+	}
+	
+.navbar-right {
+    float: left !important;
+    margin-left: 0px;
+}
+.navbar-brand > img {
+		width:100px;
+	}
+.navbar-header a.navbar-brand {
+		float:left;
+	}
+#loginpop {
+    margin: 5px;
+	}
+.header-cart {
+		padding:5px !important;
+	 }
+	 
+.header-cart i{
+	margin-right:5px;	
+	}
+.navbar-header {
+		width: 100%;
+		float: left;
+	}
+.container > .navbar-header,
+.container-fluid > .navbar-header,
+.container > .navbar-collapse,
+.container-fluid > .navbar-collapse {
+		margin-right: 0px;
+		margin-left: 0px;
+	}
+.meta {
+		bottom: 10px;
+		left: 20px;
+		right: 20px;
+		padding: 15px;
+	}
+.meta h1 {
+		color: #f13c13;
+		font-size: 18px;
+		font-weight: 900;
+		margin-bottom: 10px;
+	}
+.meta p {
+		width: 100%;
+		font-size: 13px;
+		-webkit-animation-delay: .6s;
+		animation-delay: .6s;
+		line-height: initial;
+	}
+.team .team-grid {
+		border-bottom: 1px solid #ccc;
+		padding-bottom: 10px;
+		margin-bottom: 20px;
+		margin-left: auto;
+		margin-right: auto;
+	}
+.spoke-section .sector-section {
+		background: #fff;
+		box-shadow: 0px 2px 5px #333;
+		margin: 10px 0px;
+		padding: 15px 0px;
+	}
+	
+.user-auth {
+    text-align: center;
+    border: 7px solid #ae3418;
+    padding: 7px 15px;
+    box-shadow: 0px 0px 25px #aaa;
+   }
+.user-auth h3 {
+    font-size: 16px;
+   }
+.breadcrumb{display:none;}
+.registration-form{padding:20px 0px;}
+
+
+.layout-margin, .layout-margin-gt-sm, .layout-margin-gt-sm > *, .layout-margin-md, .layout-margin-md > *, .layout-margin > *, .layout-margin > .flex, .layout-margin > .flex-gt-sm, .layout-margin > .flex-md {
+    margin: 0;
+}
+.layout-padding, .layout-padding-gt-sm, .layout-padding-gt-sm > *, .layout-padding-md, .layout-padding-md > *, .layout-padding > *, .layout-padding > .flex, .layout-padding > .flex-gt-sm, .layout-padding > .flex-md {
+padding: 5px 5px;}
+
+.md-input-container .md-errors-spacer {
+    float: right;
+    min-height: 1px;
+min-width: 1px;}
+.registration-form{margin:0px;}
+.student-info{padding:0px;}
+
+.single-product .tab-pane {
+    width: 100%;
+    height: auto;
+    overflow: hidden;
+    text-align: center;
+}
+.login1 img {
+    width: 250px;
+ margin-bottom: 20px; 
+}
+ select> option:hover{background-color:#3684f9;}
+
+
+
+}
+
+
+

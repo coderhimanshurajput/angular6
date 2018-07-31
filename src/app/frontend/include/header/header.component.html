@@ -1,0 +1,180 @@
+
+<div class="col-sm-10" *ngIf="isloggedin === '' "  >
+   <div class="top-marq">
+       <marquee scrolldelay=200>{{logedin}} Sale of uniforms for Indian International School starts tomorrow 1st May 2018</marquee>
+   </div>
+</div>
+   <div class="col-md-2 " *ngIf="isloggedin === '' ">
+       <select class="pull-right top-lang">
+           <option value="null">Select Language</option>
+           <option>English</option>
+
+       </select>
+   </div>
+
+    <div style="clear:both"></div>
+
+<div class="header" id="home" *ngIf="isloggedin === '' ">
+    <nav class="navbar navbar-default" id="MainMenu">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                  </button>
+                <a class="navbar-brand" href="index.html"><img src="assets/images/logo.jpg"></a>
+            </div>
+            <div class="navbar-collapse header2-nav">
+                <ul class="nav navbar-nav navbar-right margin-top cl-effect-2">
+                    <li class="visible-xs">
+                        <div id="loginpop">
+                            <a href="" data-toggle="modal" data-target="#modalSignUp" ><span>signup</span></a>
+                        </div>
+                    </li>
+                    <li><a routerLink="">Home</a></li>
+                    <li><a routerLink="about">About</a></li>
+                    <li class="dropdown">
+                    <a class="dropdown-toggle" data-toggle="dropdown" href="#">Bespoke
+                    <span class="caret"></span></a>
+                    <ul class="dropdown-menu">
+                        <li><a routerLink="bespoke/uniforms">Uniforms</a></li>
+                        <li><a routerLink="bespoke/fabrics">Fabrics</a></li>
+                    </ul>
+                    </li>
+                    
+                    <li class="dropdown">
+                            <a class="dropdown-toggle" data-toggle="dropdown" href="#">Eduaction
+                            <span class="caret"></span></a>
+                            <ul class="dropdown-menu">
+                                <li><a routerLink="education/schooluniforms">School</a></li>
+                                <li><a routerLink="education/corporateuniforms">Corporate</a></li>
+                            </ul>
+                            </li>
+                    <li class="dropdown">
+                            <a class="dropdown-toggle" data-toggle="dropdown" href="#">Accessories
+                            <span class="caret"></span></a>
+                            <ul class="dropdown-menu">
+                                <li><a routerLink="accessories/sports">Sports</a></li>
+                                <li><a routerLink="accessories/bags">Bags</a></li>
+                            </ul>
+                            </li>
+                    <li class="dropdown">
+                            <a class="dropdown-toggle" data-toggle="dropdown" href="#">Sectors
+                            <span class="caret"></span></a>
+                            <ul class="dropdown-menu">
+                                <li><a routerLink="sector/corporate">Corporate</a></li>
+                                <li><a routerLink="sector/hospitality">Hospitality</a></li>
+                                <li><a routerLink="sector/healthcare">Healthcare</a></li>
+                                <li><a routerLink="sector/aviation">Aviation</a></li>
+                                <li><a routerLink="sector/industrial">Industrial</a></li>
+                              
+                            </ul>
+                            </li>
+                    <li><a routerLink="contact"><span data-hover="Contact">Contact</span></a></li>
+                    <li class="hidden-xs">
+                        <div id="loginpop">
+                            <a href="" data-toggle="modal" data-target="#registerModal" ><span>signup</span></a>
+                        </div>
+                    </li>
+
+                </ul>
+
+            </div>
+
+        </div>
+    </nav>
+    </div>
+    <div class="clearfix"> </div>
+
+
+<div id="registerModal" class="modal fade model-detail-form" role="dialog">
+    <div class="modal-dialog">
+  
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" (click)="clearformdata()">&times;</button>
+          <h4 class="modal-title">Modal Header</h4>
+        </div>
+        <div class="modal-body">
+
+          <div class="col-sm-5">
+
+            <img src="../../../assets/images/logo.jpg" width="200" height="100" alt="img03">
+          </div>
+          <div class="col-sm-7">
+
+         
+
+          <form >
+
+            <div class="register1_container">
+      
+      
+      
+              <mat-form-field>
+                <input matInput placeholder="email" [(ngModel)]="User.email" [formControl]="email"  required>
+      
+                <mat-error *ngIf="email.invalid">{{getErrorMessage()}}</mat-error>
+              </mat-form-field>
+      
+      
+              <mat-form-field>
+                <input matInput placeholder="password" type="password"  [(ngModel)]="User.password"[formControl]="password" required>
+                <mat-error *ngIf="password.invalid">{{getpasswordErrorMessage()}}</mat-error>
+              </mat-form-field>
+      
+            </div>
+			<div class="text-right">
+                <button *ngIf="email.invalid || password.invalid">Register</button>
+
+                <button *ngIf="email.valid && password.valid" data-dismiss="modal" (click)="register()" >Register</button>
+             </div>
+      
+          </form>
+        </div>
+        </div>
+        <div class="modal-footer">
+        
+        </div>
+      </div>
+  
+    </div>
+  </div> 
+  
+
+
+  <div class="header" id="home" *ngIf="isloggedin !=''">
+    <nav class="navbar navbar-inverse navbar-default">
+        <div class="container">
+            <div class="navbar-header" style="width:100%;">
+                
+                <a class="navbar-brand" href=""><img src="assets/images/logo.jpg"></a>
+                 <ul class="list-inline pull-right">
+
+                    <li class="hidden-xs">
+                        <a href=""  routerLink="view-products">Home</a>
+                    </li>
+                    <li class="dropdown">
+                        <a class="dropdown-toggle" data-toggle="dropdown" href="">Profile<span class="caret"></span></a>
+                        <ul class="dropdown-menu">
+                            <li class="profile-link"><span><img src="assets/images/avatar.png"></span> {{username}}</li>
+                            <li *ngIf="termsandconditon ==='true'"><a   routerLink="profile">Edit Profile</a></li>
+                            <li *ngIf="termsandconditon ==='true'"> <a routerLink="orderhistory" >Order History</a></li>
+                            <li><a  (click)="logout()">Logout</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <div id="loginpop" *ngIf="termsandconditon ==='true'" class="header-cart">
+                            <p routerLink="view-cart"><i class="glyphicon glyphicon-shopping-cart"></i><span>{{productcount}}</span></p>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+            <div class=" header2-nav" id="bs-navbar">
+               
+             
+             
+            </div>
+        </div>     

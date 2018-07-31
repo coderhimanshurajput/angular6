@@ -1,0 +1,124 @@
+<div class="container main-block">
+  <div class="col-sm-12 main-contant">
+  <div class="col-sm-12 single-product">
+  <!-- <form name="addForm"> -->
+      <div class="col-sm-8 table-row order-summary">
+          <h2 class="cart-top-title">Shipping Address</h2>
+         
+
+              <div class="col-sm-12">
+                <div class="form-group">
+                  <div class="col-sm-6">
+                      <mat-form-field>
+          
+                          <input matInput placeholder="firstname" readonly="" [(ngModel)]="register1.first_name" name="firstname" #firstname="ngModel" required>
+                    
+                       
+                      
+                       
+                        </mat-form-field>
+                  </div>
+                  <div class="col-sm-6">
+                      <mat-form-field>
+                          <input matInput placeholder="lastname" readonly="" name="lastname" [(ngModel)]="register1.last_name" #lastname="ngModel" required>
+                        
+                        </mat-form-field>
+                  </div>
+                </div>
+          
+          
+                <div class="form-group">
+                    <div class="col-sm-6">
+                        <mat-form-field>
+          
+                            <input matInput placeholder="Mobile No." readonly="" [(ngModel)]="register1.phone_number" name="phone_number" #phone_number="ngModel" required>
+                    
+                            
+                          </mat-form-field>
+                    </div>
+                    <div class="col-sm-6">
+                        <mat-form-field>
+                            <input matInput placeholder="email" readonly="" name="email" [(ngModel)]="register1.email" #email="ngModel" required>
+                           
+                         
+                          </mat-form-field>
+                    </div>
+                </div>
+          
+                <div class="form-group">
+                    <div class="col-sm-6">
+                        <mat-form-field>
+          
+                            <input matInput placeholder="Address" readonly="" [(ngModel)]="register1.address" name="address" #address="ngModel" required>
+                    
+                          </mat-form-field>
+                    </div>  
+                    <div class="col-sm-6">
+                        <mat-form-field>
+                            <input matInput placeholder="Pin" readonly="" name="pin_code" [(ngModel)]="register1.pin_code" #pin_code="ngModel" required>
+                        
+                          </mat-form-field>
+                    </div>
+                </div>
+                
+                <!-- <div class="form-group">
+                    <button >Click me!</button>
+                </div> -->
+      </div>
+
+      
+      <div class="col-sm-12 text-center">
+                  <!-- <md-input-container class='md-block'>
+                      
+                      <md-button type="submit" class="md-raised md-primary md-block md-button md-ink-ripple" ng-click="confirmOrder()">Place Order</md-button>
+                  </md-input-container> -->
+                  <button mat-raised-button color="primary" (click)="confirmOrder()" class="place-btn">Payment</button>
+                 
+              </div>
+	 
+      </div>
+	   <div class="col-sm-4 table-row ">
+          <div class="col-sm-12 order-summary">
+              <div class="">
+                  <h2 class="cart-top-title">Order Summary</h2>
+              </div>
+              <table class="table table-reposnive">
+                  <thead>
+                      <tr>
+                          <th>Product</th>
+                          <th class="text-right">Price</th>
+                      </tr>
+                  </thead>
+                  <tbody ng-repeat="cart in data.data.cart">
+                      <tr>
+                          <td>
+                              <!-- <h5>{{cart.productname}}</h5></td> -->
+                          <td class="text-right">
+                              <h5><strong>{{Total}}</strong></h5></td>
+                      </tr>
+                  </tbody>
+                  <tr>
+                      <td>
+                          <h5><strong>Subtotal</strong></h5></td>
+                      <td class="text-right">
+                          <h5><strong>{{Total}}</strong></h5></td>
+                  </tr>
+                  <tr>
+                      <td>
+                          <h5><strong>Tax 5%</strong></h5></td>
+                      <td class="text-right">
+                          <h3><strong>{{Taxamount}}</strong></h3></td>
+                  </tr>
+                  <tr>
+                      <td>
+                          <h3><strong>Total</strong></h3></td>
+                      <td class="text-right">
+                          <h3><strong>AED {{Total+Taxamount}}</strong></h3></td>
+                  </tr>
+                  
+              </table>
+          </div>
+    <!-- </form> -->
+  </div>
+</div>
+</div>

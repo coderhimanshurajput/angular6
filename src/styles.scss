@@ -1,0 +1,17 @@
+/* You can add global styles to this file, and also import other style files */
+
+@import "assets/css/style.css";
+@import "assets/css/bootstrap.css";
+// @import "assets/css/angular-material.min.css";
+// @import "assets/css/angular-toastr.css";
+@import "assets/css/component.css";
+
+@import "assets/css/slick-theme.css";
+@import "assets/css/slick.css";
+@import "~@angular/material/prebuilt-themes/indigo-pink.css";
+@import "assets/css/toaster.css";
+@import "assets/css/impulse-style.css";
+.form-group, mat-form-field{
+    width: 100% !important;
+    display: inline-block;
+}

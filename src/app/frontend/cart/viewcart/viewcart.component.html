@@ -1,0 +1,103 @@
+<div class="container main-block">
+  <div class="col-sm-12 main-contant">
+  <div class="col-sm-12 ">
+    <div class="col-sm-8 table-row order-summary">
+      <h2 class="cart-top-title">Product</h2>
+      <div class="table-responsive ">
+    <!--  {{cartproduct}} -->
+        <table class="table table-hover">
+          <thead>
+            <tr>
+              <th>Product</th>
+              <th>Quantity</th>
+              <th class="text-center">Size</th>
+              <th class="text-center">Price</th>
+              <th> </th>
+            </tr>
+          </thead>
+          <tbody *ngFor="let cart of productlist  let i=index;">
+            <tr>
+              <td >
+                <div class="media">
+                  <div class="media-left">
+                    <a class="" href="#"> <img src="{{cart.product.image}}" style="width: 72px; "> </a>
+                  </div>
+                  <div class="media-body">
+                    <h4><a href="#">{{productlist.name}}</a></h4>
+                    <span>Status: </span><span class="text-success"><strong>In Stock</strong></span>
+                  </div>
+                </div>
+              </td>
+              <td class="view-cart-qty" >
+                <!-- [(ngModel)]="qty.quantity" (ngModelChange)="update_qty(cart._id,qty.quantity)" -->
+                  <input type="number" step="1" min="1" name="quantity"  value="{{cart.product.quantity}}" (change)="update_qty($event, cart._id)">
+               
+               </td>
+              <td class="text-center"><strong>{{cart.product.size}}</strong></td>
+              <td class=" text-center"><strong>{{cart.product.price}}</strong></td>
+              <td >
+                <button type="button" class=" btn-box btn btn-primary"  (click)="removeproduct(cart._id)">
+                  <span class="glyphicon glyphicon-remove"></span> Remove
+                </button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+    <div class="col-sm-4 table-row">
+      <div class="col-sm-12 order-summary">
+        <div class="">
+          <h2 class="cart-top-title">Order Summary</h2>
+        </div>
+        <div class="table-responsive">
+          <table class="table ">
+            <thead>
+              <tr>
+                <th>Product</th>
+                <th class="text-center">Price</th>
+                <th class="text-center"></th>
+                <th class="text-center">Qty</th>
+                <th class="text-right">Total</th>
+              </tr>
+            </thead>
+            <tbody >
+              <tr *ngFor="let cart of productlist">
+                <td><h5>{{cart.product.name}}</h5></td>
+                <td class="text-center"><h5>{{cart.product.price}}</h5></td>
+                <td class="text-center"><h5>x</h5></td>
+                <td class="text-center"><h5>{{cart.product.quantity}}</h5></td>
+                <td class="text-right"><h5><strong>{{cart.product.quantity * cart.product.price}}</strong></h5></td>
+              </tr>
+              <tr>
+                <td colspan="3" class="text-right"><h5><strong>Subtotal</strong></h5></td>
+                <td colspan="2" class="text-right"><h5><strong>{{Total}}</strong></h5></td>
+              </tr>
+              <tr>
+                <td colspan="3" class="text-right"><h5><strong>Vat 5%</strong></h5></td>
+                <td colspan="2" class="text-right"><h3><strong>{{VAT}}</strong></h3></td>
+              </tr>
+              <tr>
+                <td colspan="3" class="text-right"><h3><strong>Total</strong></h3></td>
+                <td colspan="2" class="text-right"><h3><strong>AED {{Total+VAT}}</strong></h3></td>
+              </tr>
+              <tr>
+                <td colspan="3">
+                  <button type="button" class="btn-box btn btn-default" (click)="ContinueShopping()">
+                    <span class="glyphicon glyphicon-shopping-cart"></span> Continue Shopping
+                  </button>
+                </td>
+                <td colspan="2">
+                  <button (click)="checkout()" class="btn-box btn btn-primary">
+                    Checkout <span class="glyphicon glyphicon-play"></span>
+                  </button>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</div>

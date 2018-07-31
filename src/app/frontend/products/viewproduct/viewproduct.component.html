@@ -1,0 +1,77 @@
+
+
+<div class="container main-block">
+    <div class="col-sm-12 main-contant">
+
+        <div class="product-listing">
+            <div class="col-sm-12 product-filter visible-md visible-lg">
+                <ul>
+                    <li class="active"><i class="fa fa-filter"></i> Search By</li>
+
+                     <button  ng-click="season(this.value); products(products)">
+                    Sports</button>
+                    <button value="accessories" ng-click="accessory($event); products(products)">
+                    Accessories</button>
+                    <button   ng-click="products(products)">
+                    All</button>
+                </ul>
+
+
+            </div>
+            <div class="col-md-12 col-sm-12" id="product-item-part">
+                 <form name="addCart" novalidate ng-submit="addCart.$valid && cart(cms)">
+                <div >
+
+                                        <!-- <select name="studentsname" [(ngModel)]="product.student_id" (ngModelChange)="productlist($event)" >
+                                         <option  selected>Select Student</option>
+                                          
+                                               <option  *ngFor="let item of studentdata" value={{item._id}}  > {{item.name}}</option>
+                                        </select> -->
+                                        <mat-form-field>
+                                                <mat-select  placeholder="Select Student" name="studentsname" [(ngModel)]="product.student_id" (ngModelChange)="productlist($event)" >
+                                                  <mat-option *ngFor="let item of studentdata" value={{item._id}}  > {{item.name}}</mat-option>
+                                                  </mat-select>
+                                             
+                                              </mat-form-field>
+                                      
+                                        
+                                        <div class="alert alert-info" *ngIf='studentdata.length==0'>
+                                            No Product Found
+                                        </div>
+
+                <div class="col-md-3 product-men" *ngFor="let item of productdata">
+
+
+                    <div class="men-pro-item simpleCart_shelfItem">
+                        <a (click)="quickview(item._id,product.student_id)"  style="display: block;">
+                        <div class="men-thumb-item">
+                            <div class="item-img">
+                                <img src={{item.image}} alt="" class="pro-image-front">
+                            </div>
+
+
+                            <span class="product-new-top">New</span>
+                        </div>
+                        </a>
+                        <div class="item-info-product ">
+                            <div class="col-sm-12 product-title">
+                                <h4 > <b>{{item.name}}</b></h4>
+                                <h4 > <b>AED: {{item.sizes[0].price}}</b></h4>
+
+                            </div>
+
+
+                            <div style="clear:both"></div>
+                        </div>
+
+                    </div>
+
+                </div>
+                <div style="clear:both;"></div>
+                </div>
+            </form>
+
+        </div>
+    </div>
+    </div>
+

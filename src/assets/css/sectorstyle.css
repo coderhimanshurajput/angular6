@@ -1,0 +1,49 @@
+.space2em{height: 2em}
+
+.banner {
+    background: url(../images/banner.jpg);
+    background-size: cover;
+    min-height: 250px !important; 
+    padding-top: 0em !important;
+	text-align: center;
+}
+.request-quote{border: 1px solid;
+    border-top: none;
+    cursor: pointer;
+    width: 170px;
+    height: 34px;
+    overflow: hidden;
+    background: #ae3418;
+    color: #fff !important;
+    padding: 2px 0px 2px 0px;
+    position: fixed;
+    top: 200px;
+    left: -68px;
+    text-align: center;
+    -webkit-transform: rotate(-90deg);
+    -moz-transform: rotate(-90deg);
+    -ms-transform: rotate(-90deg);
+    -o-transform: rotate(-90deg);
+    transform: rotate(-90deg);
+    z-index: 9999999;
+    font-size: 18px;
+	}
+	.sector-banner:before{content:"";top:0px ;left:0px ;right:0px;bottom:0px;background-color:rgba(125,125,125,0.5);}
+	.request-quote a{ color: #fff !important;}
+	.sector-banner .container h1 {height:250px;line-height:250px;}
+	.sector-banner>.container h1 span{color: #fff;
+    font-size: 60px;
+    text-shadow: 0px 0px 5px #000;
+    font-weight: 600;
+    box-shadow: 0px 0px 25px #fff;
+    padding: 10px;}
+    .clear-both{clear:both;}
+	.sector-section{    margin-bottom: 70px;
+    padding: 0px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid #eee;}
+	.sector-title{margin-bottom:1em;}
+	.sector-title h2 span{color: #000;border-bottom: 4px solid #ae3418;padding-bottom: 15px;font-family: Montserrat;font-size: 50px;
+	   font-weight:  bold;display:inline-block;}
+	.sector-contant p{color: #2c2c2c; font-size: 12pt; line-height: 35px;text-align:justify;display:inline-block;}
+	.sector-img img{height: auto;max-width: 100%;vertical-align: top;}

@@ -1,0 +1,59 @@
+<div class="container main-block">
+  <div class="main-contant">
+    <div class="history-section">
+
+<div *ngFor="let cart of orderlist">
+<div>
+   <table class="table">
+  
+        <tr>
+          <td>
+            <h3>Order Number</h3>
+            <p>{{cart._id.slice("-5")}}</p>
+          </td>
+          <td>
+            <h3>Order Date</h3>
+            <p>{{cart.created_at | date}}</p>
+          </td>
+          <td>
+            <h3>Items</h3>
+            <p>{{cart.product.length}}</p>
+          </td>
+          <td>
+            <h3>Address</h3>
+            <p> {{cart.shipping.address}}</p>
+              <p> {{cart.shipping.pin_code}}</p>
+          </td> 
+          <td>
+            <h3>Status</h3>
+            <p>{{cart.status}}</p>
+          </td>
+
+        </tr>
+
+
+        <tr  *ngFor="let data of cart.product"  >
+          <td>
+            <h4>Product Image</h4>
+            <div class="pro-his-img">
+              <img src="{{data.image}}" >
+            </div>
+          </td>
+          <td><h4>Qty</h4><p>{{data.quantity}}</p></td>
+          <td><h4>Size</h4><p>{{data.size}}</p></td>
+          <td><h4>Price</h4>
+            <p>{{data.price * data.quantity}}</p>
+          </td>
+          <td><h4>Tax</h4><p>{{data.price*5 * data.quantity /100}}</p></td>
+        </tr>
+    </table>  
+</div>
+    </div>
+ <div class="alert alert-info" *ngIf='orderlist.length===0'>No record found</div>
+  
+   
+</div>
+   
+      </div>
+
+    </div>

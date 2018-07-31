@@ -1,0 +1,121 @@
+
+<div>
+  <div class="banner  banner-5 ng-scope sector-banner">
+    <div class="container">
+      <h1><span>Contact Us</span></h1>
+    </div>
+  </div>
+</div>
+
+<div class="container main-block">
+  <div class="col-sm-12 main-contant">
+    <div class="col-sm-5">
+      <div class="contact-block1">
+        <h2>Address</h2>
+        <div class="row">
+          <div class="col-sm-2 col-xs-2"><span class="glyphicon glyphicon-home"></span></div>
+          <div class="col-sm-10 col-xs-10"><strong>IMPULSE WAVE GENERAL TRADING LLC</strong><br>Office No:109,Green Corner Building, Alrigga Road , Deira, Dubai.</div>
+        </div>
+        <div class="row">
+          <div class="col-sm-2 col-xs-2"><span class="glyphicon glyphicon-envelope"></span></div>
+          <div class="col-sm-10 col-xs-10">impulseuniforms@gmail.com</div>
+        </div>
+        <div class="row">
+          <div class="col-sm-2 col-xs-2"><span class="glyphicon glyphicon-earphone"></span></div>
+          <div class="col-sm-10 col-xs-10">+971 588165761</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- contact info page  start  -->
+
+    <div class="col-sm-7">
+      <div class="contact-block1">
+        <h2>Contact Information</h2>
+        <form method="POST" action="">
+          <div class="row contact-form">
+            <div class="col-md-6">
+              <div class="form-group">
+                <label for="name">Name</label>
+                <input type="text" ng-model="email.name" name="name" class="form-control" id="name" placeholder="Enter name" required="required" />
+              </div>
+              <div class="form-group">
+                <label for="email">Email Address</label>
+                <input type="email" ng-model="email.email" name="email" class="form-control" id="email" placeholder="Enter email" required="required" />
+              </div>
+              <div class="form-group">
+                <label for="subject">Subject</label>
+                <select id="subject" ng-model="email.subject" name="subject" class="form-control required">
+                  <option value="" disabled="disabled" >Choose One</option>
+                  <option value="General Customer Service">General Customer Service</option>
+                  <option value="Suggestions">Suggestions</option>
+                  <option value="Product">Product Support</option>
+                </select>
+              </div>
+            </div>
+            <div class="col-md-6">
+
+              <div class="form-group">
+
+                <label for="name">Message</label>
+                <textarea name="message" ng-model="email.message" id="message" class="form-control" rows="9" cols="25" required="required"placeholder="Message"></textarea>
+              </div>
+            </div>
+            <div class="col-md-12 text-right">
+              <button type="submit" ng-click="contact()" class="btn btn-primary" id="btnContactUs">Send Message</button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+
+    <!-- contact form end  -->
+  </div>
+
+  <!-- CAREERS INFORAMATIONS  START  -->
+
+  <div class="col-sm-12">
+    <div class="row contact-form">
+      <div class="col-md-12 main-contant">
+        <div class="col-md-6">
+          <div class="contact-block1">
+            <h2>Career Information</h2>
+            <form action="" method="post">
+              <div class="form-group">
+                <label>Your Name (required)</label>
+                <input type="text" class="form-control" name="name" required="required" ng-model="career.name">
+              </div>
+              <div class="form-group">
+                <label>Your Email (required)</label>
+                <input type="email" class="form-control" name="email" required="required" ng-model="career.email">
+              </div>
+              <div class="form-group">
+                <label> Mobile Number</label>
+                <input type="text" class="form-control" name="number" required="required" maxlength="10" minlength="10" ng-model="career.number" onkeypress="javascript:return isNumber(event)">
+              </div>
+              <div class="form-group">
+                <label>Resume Upload</label>
+                <input type="file" class="form-control" name="file" required="required" ng-model="career.file">
+              </div>
+              <div class="form-group text-right">
+                <button type="submit" ng-click="careers()" class="btn btn-primary" id="btnCareers">Submit</button>
+                <div style="clear:both"></div>
+              </div>
+            </form>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="contact-block1"><h2> Location</h2></div>
+          <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d225.5115727828057!2d55.322014066068576!3d25.264355877151207!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3e5f5ccee450561d%3A0x744cd9fb4f0fa1da!2sAl+Rigga+Rd+-+Dubai+-+United+Arab+Emirates!5e0!3m2!1sen!2sin!4v1520930123041" width="100%" height="350" frameborder="0" style="border:0" allowfullscreen></iframe></div>
+        <div class="clear-both"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- CAREEER INFORAMATIONS END  -->
+
+</div>
+
+
+
+
